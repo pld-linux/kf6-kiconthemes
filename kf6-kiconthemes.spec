@@ -45,6 +45,7 @@ Requires:	kf6-kcoreaddons >= %{version}
 Requires:	kf6-ki18n >= %{version}
 Requires:	kf6-kitemviews >= %{version}
 Requires:	kf6-kwidgetsaddons >= %{version}
+Obsoletes:	kf5-%{kfname} < %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt6dir		%{_libdir}/qt6
@@ -70,6 +71,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	Qt6Widgets-devel >= %{qtver}
 Requires:	cmake >= 3.16
+Obsoletes:	kf5-%{kfname}-devel < %{version}
 
 %description devel
 Header files for %{kfname} development.
