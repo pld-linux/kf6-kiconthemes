@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	6.2
+%define		kdeframever	6.3
 %define		qtver		5.15.2
 %define		kfname		kiconthemes
 
 Summary:	Icon GUI utilities
 Name:		kf6-%{kfname}
-Version:	6.2.0
+Version:	6.3.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	2fe3029550fa4077dc590f478f3fad6d
+# Source0-md5:	85e24890679dbeae8f622b2b3fb72c30
 URL:		http://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
@@ -21,6 +21,7 @@ BuildRequires:	Qt6Svg-devel >= %{qtver}
 BuildRequires:	Qt6Test-devel >= %{qtver}
 BuildRequires:	Qt6Widgets-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16
+BuildRequires:	kf6-breeze-icons-devel >= %{version}
 BuildRequires:	kf6-extra-cmake-modules >= %{version}
 BuildRequires:	kf6-karchive-devel >= %{version}
 BuildRequires:	kf6-kconfigwidgets-devel >= %{version}
@@ -45,7 +46,7 @@ Requires:	kf6-kcoreaddons >= %{version}
 Requires:	kf6-ki18n >= %{version}
 Requires:	kf6-kitemviews >= %{version}
 Requires:	kf6-kwidgetsaddons >= %{version}
-Obsoletes:	kf5-%{kfname} < %{version}
+#Obsoletes:	kf5-%{kfname} < %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		qt6dir		%{_libdir}/qt6
@@ -71,7 +72,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	Qt6Widgets-devel >= %{qtver}
 Requires:	cmake >= 3.16
-Obsoletes:	kf5-%{kfname}-devel < %{version}
+#Obsoletes:	kf5-%{kfname}-devel < %{version}
 
 %description devel
 Header files for %{kfname} development.
@@ -114,8 +115,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kiconfinder6
 %ghost %{_libdir}/libKF6IconThemes.so.6
 %attr(755,root,root) %{_libdir}/libKF6IconThemes.so.*.*
-%attr(755,root,root) %{_libdir}/qt6/plugins/iconengines/KIconEnginePlugin.so
 %attr(755,root,root) %{_libdir}/qt6/plugins/designer/kiconthemes6widgets.so
+%dir %{_libdir}/qt6/plugins/kiconthemes6
+%dir %{_libdir}/qt6/plugins/kiconthemes6/iconengines
+%attr(755,root,root) %{_libdir}/qt6/plugins/kiconthemes6/iconengines/KIconEnginePlugin.so
 %{_datadir}/qlogging-categories6/kiconthemes.renamecategories
 %attr(755,root,root) %{_libdir}/libKF6IconWidgets.so.*.*
 %ghost %{_libdir}/libKF6IconWidgets.so.6
