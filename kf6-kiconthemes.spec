@@ -66,6 +66,22 @@ applications using the KDE Frameworks. Provided are:
 Other classes in this repository are used internally by the icon theme
 configuration dialogs, and should not be used by applications.
 
+%description -l pl.UTF-8
+Ta biblioteka zawiera klasy, które ulepszają obsługę ikon w
+aplikacjach korzystających ze szkieletów KDE. Są to między innymi:
+
+- KIconDialog: klasa okienek dialogowych pozwalająca wybrać ikonę z
+  listy zainstalowanych.
+- KIconButton: klasa niestandardowego przycisku, która wyświetla
+  ikonę. Gdy użytkownik ją kliknie, może go zmienić używając okno
+  dialogowego ikony.
+- KIconEffect: stosuje różne efekty kolorystyczne do ikon, które mogą
+  być użyte do tworzenia wybranych/zablokowanych obrazków ikon.
+
+Inne klasy w tym repozytorium są używane wewnętrznie przez okienka
+dialogowe konfiguracji motywów i nie powinny być używane bezpośrednio
+przez aplikacje.
+
 %package devel
 Summary:	Header files for %{kfname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kfname}
