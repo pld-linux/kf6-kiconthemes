@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	6.29
+%define		kdeframever	6.30
 %define		qtver		5.15.2
 %define		kfname		kiconthemes
 
 Summary:	Icon GUI utilities
 Name:		kf6-%{kfname}
-Version:	6.29.0
-Release:	2
+Version:	6.30.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	38c9b27fadd91131092df1ac17484a4b
+# Source0-md5:	e60acb5f5a3525c3ba42bdd2d0362470
 URL:		https://www.kde.org/
 BuildRequires:	Qt6Core-devel >= %{qtver}
 BuildRequires:	Qt6DBus-devel >= %{qtver}
